@@ -1,0 +1,57 @@
+# kortix.yaml — the project manifest for a self-hosted open-source ChatGPT Work alternative.
+#
+# This file is the company as code: the machine image sessions boot, the
+# connectors they may reach, the triggers that start work with nobody asking,
+# and the agents that do it. Everything here is text you own and can diff.
+
+name: chatgpt-work-alternative-self-hosted
+version: 2
+
+# The runtime image each session boots. Swap for your own registry image to
+# run fully air-gapped.
+machine:
+  image: kortix/opencode:latest
+  workdir: /workspace
+
+# Connectors are declared once and scoped per agent. Credentials are brokered
+# server-side and never enter the machine.
+connectors:
+  github:
+    kind: mcp
+    scopes: [repo, issues]
+  shell:
+    kind: builtin
+
+# Agents are markdown files beside this manifest. Each names the connectors it
+# may use and the tools it may call.
+agents:
+  self-host-guide:
+    file: agents/self-host-guide.md
+    connectors: [shell, github]
+  seo-weekly:
+    file: agents/self-host-guide.md   # example: one agent, many jobs via prompts
+    connectors: [shell]
+
+# Skills are markdown procedures the agents load. Keep them short and concrete.
+skills:
+  - skills/verify-self-host.md
+
+# Triggers start a session on a schedule or a signed webhook, with nobody
+# present. Approval gates are off until you set them.
+triggers:
+  - slug: nightly-healthcheck
+    type: cron
+    cron: "0 3 * * *"
+    prompt: Run the verify-self-host skill and open a change request with the result.
+    agent: self-host-guide
+
+# Per-tool permissions. An "ask" holds the call until a person approves it,
+# then the agent resumes. The default posture is allow; tighten as needed.
+permissions:
+  shell:
+    - match: "rm -rf *"
+      action: block
+    - match: "docker compose *"
+      action: ask
+
+# The open source Kortix runtime runs this manifest. Docs: https://kortix.com/docs
