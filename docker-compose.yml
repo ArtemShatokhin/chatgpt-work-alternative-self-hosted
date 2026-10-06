@@ -1,0 +1,42 @@
+# docker-compose.yml — a self-hosted open-source ChatGPT Work alternative stack.
+#
+# One box, two services: the Kortix API/control plane and the session runtime.
+# The same manifest runs on a laptop, a VPS, your VPC or on-prem.
+#
+#   docker compose up -d
+#   curl -fsSL https://kortix.com/install | bash
+#   kortix self-host start
+#
+# See docs/self-hosting.md for the full walkthrough.
+
+services:
+  kortix-api:
+    image: kortix/opencode:latest
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgres://kortix:kortix@db:5432/kortix
+      OPENCODE_HARNESS: "1"
+      # Bring your own model key; Kortix is model-agnostic.
+      OPENAI_API_KEY: "${OPENAI_API_KEY:-}"
+      ANTHROPIC_API_KEY: "${ANTHROPIC_API_KEY:-}"
+    volumes:
+      - ./kortix.yaml:/workspace/kortix.yaml:ro
+      - kortix-data:/var/lib/kortix
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: kortix
+      POSTGRES_PASSWORD: kortix
+      POSTGRES_DB: kortix
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+
+volumes:
+  kortix-data:
+  pg-data:
