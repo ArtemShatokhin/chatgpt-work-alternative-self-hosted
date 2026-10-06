@@ -1,0 +1,5 @@
+# Local state — the stack brings its own database.
+.env
+*.log
+kortix-data/
+pg-data/
