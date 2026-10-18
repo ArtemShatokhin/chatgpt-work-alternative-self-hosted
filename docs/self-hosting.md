@@ -1,6 +1,6 @@
 # Self-hosting the open-source ChatGPT Work alternative
 
-ChatGPT Work runs inside OpenAI's cloud — there is no self-host edition, and the agent instructions, connectors and schedules stay inside OpenAI's product. This guide runs the open source Kortix AI Management System on infrastructure you control: a laptop, a VPS, your own VPC or an on-prem network. Pick the path that matches where the work should live.
+ChatGPT Work runs inside OpenAI's cloud — there is no self-host edition, and the agent instructions, connectors and schedules stay inside OpenAI's product. This guide runs the open-source Kortix AI Operating System on infrastructure you control: a laptop, a VPS, your own VPC or an on-prem network. Pick the path that matches where the work should live.
 
 ## Path A — a laptop (evaluate in ten minutes)
 
@@ -51,4 +51,4 @@ Run the `verify-self-host` skill after any path. It checks the control plane, th
 
 Every session runs on its own isolated Linux machine on its own branch. The agent commits there; work reaches `main` only through a change request a person reads as a diff. That is the pitch of an owned system: the whole company is one git repo you can grep, diff and roll back.
 
-Continue with the [manifest reference](kortix-yaml-reference.md), the [ownership comparison](chatgpt-work-vs-kortix.md), or the [FAQ](faq.md). Full walkthrough on the [self-hosting page](https://chatgptworkalternative.com/self-hosting.html); project docs at [kortix.com/docs](https://kortix.com/docs).
+Continue with the [manifest reference](kortix-yaml-reference.md), the [ownership comparison](chatgpt-work-vs-kortix.md), or the [FAQ](faq.md). Full walkthrough on the [self-hosting page](https://chatgptworkalternative.com/self-hosting); project docs at [kortix.com/docs](https://kortix.com/docs).
