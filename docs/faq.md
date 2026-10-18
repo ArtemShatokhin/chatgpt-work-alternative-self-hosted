@@ -8,7 +8,7 @@ Yes. Kortix is open source and self-hostable: install the CLI, run `kortix self-
 
 ## Is Kortix really open source?
 
-Yes. Kortix is open source under the Elastic License 2.0 — self-host it, read the code and modify it. The source is public at [Kortix on GitHub](https://github.com/kortix-ai/suna).
+Yes. Kortix is open source: self-host it, read the code and modify it. The source is public at [Kortix on GitHub](https://github.com/kortix-ai/suna).
 
 ## Can I run it air-gapped?
 
@@ -28,7 +28,7 @@ Every session runs on its own isolated Linux machine on its own branch. The agen
 
 ## What does it cost?
 
-Self-hosting Kortix is free. Managed Kortix Cloud is $40 per seat per month plus usage; Enterprise is custom. You bring your own model keys either way. Compare with ChatGPT Work's paid plans on the [alternatives page](https://chatgptworkalternative.com/chatgpt-work-alternatives.html).
+Self-hosting Kortix is free. On Kortix Cloud, free is $0 with 200 credits per month and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool. Enterprise is custom. You bring your own model keys either way. Compare with ChatGPT Work's paid plans on the [alternatives page](https://chatgptworkalternative.com/chatgpt-work-alternatives).
 
 ## How do I verify an install?
 
@@ -42,4 +42,4 @@ kortix init
 kortix ship
 ```
 
-Docs: [kortix.com/docs](https://kortix.com/docs). More answers on the [FAQ page](https://chatgptworkalternative.com/faq.html).
+Docs: [kortix.com/docs](https://kortix.com/docs). More answers on the [FAQ page](https://chatgptworkalternative.com/faq).
