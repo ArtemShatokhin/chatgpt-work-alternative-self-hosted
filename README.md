@@ -42,6 +42,7 @@ kortix ship
 | `docs/kortix-yaml-reference.md` | Every manifest key used here |
 | `docs/chatgpt-work-vs-kortix.md` | The ownership comparison in prose |
 | `docs/faq.md` | Deployment, licensing and model-choice answers |
+| `docs/security-review.md` | What a self-hosted install can prove before sign-off |
 
 ## Read the source
 
