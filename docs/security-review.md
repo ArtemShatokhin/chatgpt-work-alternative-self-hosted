@@ -75,7 +75,7 @@ On a GitHub origin, Kortix does not block a force-push, so add a ruleset that bl
 
 `docker-compose.yml` runs `kortix/opencode:latest` as `kortix-api` and `postgres:16-alpine` as the database. The self-hosting docs name a larger stack: `kortix/kortix-frontend`, `kortix/kortix-api`, `kortix/kortix-gateway`, Supabase and Caddy, the stack that `kortix self-host` installs ([self-hosting docs](https://kortix.com/docs/host)). Confirm which stack is running and that the image you call the API is the API.
 
-Both tags float. Pin a digest and mirror the images if the registry matters. Mirroring does not move the agent's computer: sessions run on Daytona by default, or Platinum or E2B, and the instance must be reachable so those sandboxes can call back. Drop the word air-gapped unless the sandbox provider and the model endpoint are local too.
+Both tags float. Pin a digest and mirror the images if the registry matters. Mirroring does not move the agent's computer: sessions run on Platinum by default, with Daytona available as a legacy fallback, and the instance must be reachable so those sandboxes can call back. Drop the word air-gapped unless the sandbox provider and the model endpoint are local too.
 
 ## What this repository gets right
 
